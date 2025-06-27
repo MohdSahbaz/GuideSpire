@@ -35,6 +35,4 @@ The focus is on simplicity, clean UI, fast performance, and easy content navigat
 - Character profiles with stats, builds, ascension info
 - Search & filter functionality (planned)
 - Responsive and mobile-friendly design
-- Light/Dark theme toggle
-
-
+  
