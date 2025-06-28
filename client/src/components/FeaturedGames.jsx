@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchFeaturedGames } from "../api/homeApi";
+import { fetchFeaturedGames } from "../api/homeAPI";
 
 const FeaturedGames = () => {
   const naviagte = useNavigate();

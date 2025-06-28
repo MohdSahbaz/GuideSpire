@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchHomeBanners } from "../api/homeApi";
+import { fetchHomeBanners } from "../api/homeAPI";
 
 const HomeBanner = () => {
   const [bannerImages, setBannerImages] = useState([]);
