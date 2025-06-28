@@ -58,7 +58,7 @@ const Navbar = () => {
       <div
         className={`fixed top-0 right-0 h-full w-64 bg-[#1A232C] z-50 transform transition-transform duration-300 ease-in-out ${
           menuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        } overflow-auto`}
       >
         <div className="flex items-center justify-between px-4 py-4 border-b border-gray-700">
           <h2 className="text-lg font-bold">Menu</h2>
@@ -120,7 +120,7 @@ const Navbar = () => {
       {/* Overlay when menu is open */}
       {menuOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          className="fixed inset-0 bg-black/[0.3] bg-opacity-50 z-40"
           onClick={() => setMenuOpen(false)}
         />
       )}

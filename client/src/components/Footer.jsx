@@ -1,10 +1,10 @@
-import React from "react";
-
 const Footer = () => {
   return (
-    <div>
-      <h1>Footer</h1>
-    </div>
+    <footer className="flex flex-col gap-6 py-2 text-center border-t border-gray-600">
+      <p className="text-[#a2abb3] text-base font-normal">
+        © {new Date().getFullYear()} GuideSpire
+      </p>
+    </footer>
   );
 };
 

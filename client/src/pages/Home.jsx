@@ -1,7 +1,13 @@
+import HomeBanner from "@components/HomeBanner";
+import FeaturedGames from "@components/FeaturedGames";
+import LatestGuides from "@components/LatestGuides";
+
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <HomeBanner />
+      <FeaturedGames />
+      <LatestGuides />
     </div>
   );
 };
