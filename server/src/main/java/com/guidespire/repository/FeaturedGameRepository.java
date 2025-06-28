@@ -1,4 +1,8 @@
 package com.guidespire.repository;
 
-public interface FeaturedGameRepository {
+import com.guidespire.model.FeaturedGame;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface FeaturedGameRepository extends MongoRepository<FeaturedGame, String> {
+
 }

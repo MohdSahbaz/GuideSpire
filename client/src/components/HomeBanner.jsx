@@ -1,27 +1,26 @@
 import { useEffect, useRef, useState } from "react";
-
-const bannerImages = [
-  {
-    id: 1,
-    url: "https://howlongtobeat.com/games/138060_Wuthering_Waves.jpg",
-    alt: "WUWU",
-  },
-  {
-    id: 2,
-    url: "https://cdn.akamai.steamstatic.com/steam/apps/2084970/capsule_616x353.jpg?t=1689652164",
-    alt: "Etheria Restart",
-  },
-  {
-    id: 3,
-    url: "https://cdn.wccftech.com/wp-content/uploads/2023/08/genshin-impact-4-scaled.jpg",
-    alt: "Genshin Impact",
-  },
-];
+import { useNavigate } from "react-router-dom";
+import { fetchHomeBanners } from "../api/homeApi";
 
 const HomeBanner = () => {
+  const [bannerImages, setBannerImages] = useState([]);
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
   const touchStartX = useRef(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const loadBanners = async () => {
+      try {
+        const res = await fetchHomeBanners();
+        setBannerImages(res.data.data);
+        console.log(res.data.data);
+      } catch (error) {
+        console.error("Failed to fetch banner image:", error);
+      }
+    };
+    loadBanners();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -66,12 +65,26 @@ const HomeBanner = () => {
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
         {bannerImages.map((image) => (
-          <img
-            key={image.id}
-            src={image.url}
-            alt={image.alt}
-            className="w-full min-w-full h-[180px] sm:h-[260px] md:h-[300px] lg:h-[400px] object-cover"
-          />
+          <div
+            key={image.slug}
+            onClick={() => navigate(`game/${image.slug}`)}
+            className="relative w-full min-w-full h-[180px] sm:h-[260px] md:h-[300px] lg:h-[400px] cursor-pointer
+            "
+          >
+            {/* Image */}
+            <img
+              src={image.image}
+              alt={image.name}
+              className="w-full h-full object-cover"
+            />
+
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/[.1] bg-opacity-40 flex items-end">
+              <div className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold p-4">
+                {image.name}
+              </div>
+            </div>
+          </div>
         ))}
       </div>
 

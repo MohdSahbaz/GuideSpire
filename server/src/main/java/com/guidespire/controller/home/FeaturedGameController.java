@@ -1,4 +1,4 @@
-package com.guidespire.controller;
+package com.guidespire.controller.home;
 
 import com.guidespire.model.FeaturedGame;
 import com.guidespire.payload.ApiResponse;
@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/home")
+@RequestMapping("/api/home/featured-games")
 @CrossOrigin(origins = "*")
-public class HomeController {
+public class FeaturedGameController {
 
     @Autowired
     private FeaturedGameService service;
 
-    @GetMapping("/featured-games")
+    @GetMapping
     public ResponseEntity<?> getFeaturedGames() {
 
         try {
@@ -42,12 +42,12 @@ public class HomeController {
             return ResponseEntity
                     .status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(
-                            new ApiResponse<>(500, "Failed to fetch featured games: " + e.getMessage(), null)
+                            new ApiResponse<>(500, "Failed to fetch featured games", null)
                     );
         }
     }
 
-    @PostMapping("/featured-games")
+    @PostMapping
     public ResponseEntity<?> createFeaturedGame(@Validated @RequestBody FeaturedGame game) {
         try {
             FeaturedGame saved = service.createFeaturedGames(game);
@@ -61,7 +61,7 @@ public class HomeController {
             return ResponseEntity
                     .status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(
-                            new ApiResponse<>(500, "Failed to create featured game: " + e.getMessage(), null)
+                            new ApiResponse<>(500, "Failed to create featured game", null)
                     );
         }
     }

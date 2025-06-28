@@ -1,4 +1,7 @@
 package com.guidespire.repository;
 
-public class LatestGuidesRepository {
+import com.guidespire.model.LatestGuides;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface LatestGuidesRepository extends MongoRepository<LatestGuides, String> {
 }
