@@ -7,7 +7,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-[#0F1A24] text-white shadow-sm border-b border-gray-600">
+    <header className="bg-[#0F1A24] text-white shadow-sm border-b border-gray-600 sticky top-0 z-50">
       <div className="max-w-screen-xl mx-auto flex items-center justify-between px-4 py-3">
         {/* Logo */}
         <Link to="/" className="text-xl font-bold text-white">
