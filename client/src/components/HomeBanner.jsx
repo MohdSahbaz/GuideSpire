@@ -6,7 +6,6 @@ const HomeBanner = () => {
   const [bannerImages, setBannerImages] = useState([]);
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
-  const touchStartX = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,7 +28,7 @@ const HomeBanner = () => {
       }
     }, 3000);
     return () => clearInterval(interval);
-  }, [paused]);
+  }, [paused, bannerImages.length]);
 
   const nextSlide = () => {
     setCurrent((prev) => (prev + 1) % bannerImages.length);
@@ -39,25 +38,11 @@ const HomeBanner = () => {
     setCurrent((prev) => (prev === 0 ? bannerImages.length - 1 : prev - 1));
   };
 
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = (e) => {
-    const touchEndX = e.changedTouches[0].clientX;
-    const diff = touchStartX.current - touchEndX;
-
-    if (diff > 50) nextSlide(); // swipe left
-    else if (diff < -50) prevSlide(); // swipe right
-  };
-
   return (
     <div
       className="relative w-full overflow-hidden rounded-md"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
     >
       {/* Slide Container */}
       <div
@@ -68,8 +53,7 @@ const HomeBanner = () => {
           <div
             key={image.slug}
             onClick={() => navigate(`game/${image.slug}`)}
-            className="relative w-full min-w-full h-[180px] sm:h-[260px] md:h-[300px] lg:h-[400px] cursor-pointer
-            "
+            className="relative w-full min-w-full h-[180px] sm:h-[260px] md:h-[300px] lg:h-[400px] cursor-pointer"
           >
             {/* Image */}
             <img
