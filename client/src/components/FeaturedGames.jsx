@@ -1,18 +1,23 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchFeaturedGames } from "../api/homeAPI";
+import Loader from "./Loader";
 
 const FeaturedGames = () => {
   const naviagte = useNavigate();
   const [featuredGames, setFeaturedGames] = useState([]);
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
     const featuredGamesLoader = async () => {
       try {
+        setLoader(true);
         const res = await fetchFeaturedGames();
         setFeaturedGames(res.data.data);
       } catch (error) {
         console.log("Error while loading featured games:", error);
+      } finally {
+        setLoader(false);
       }
     };
     featuredGamesLoader();
@@ -21,6 +26,7 @@ const FeaturedGames = () => {
   return (
     <section className="py-12 bg-[#0F1A24] text-white">
       <h2 className="text-2xl sm:text-3xl font-bold mb-8">Featured Games</h2>
+      {loader && <Loader />}
 
       <div className="flex flex-wrap justify-center gap-6">
         {featuredGames.map((game) => (
