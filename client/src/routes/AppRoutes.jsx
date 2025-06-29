@@ -3,6 +3,7 @@ import MainLayout from "../layouts/MainLayout";
 import Home from "@pages/Home";
 import CheckBackSoon from "@pages/CheckBackSoon";
 import NotFound from "@pages/NotFound";
+import AllGames from "@pages/AllGames";
 
 const ComingSoonRoute = () => (
   <MainLayout>
@@ -24,9 +25,17 @@ const AppRoutes = () => {
         />
 
         {/* Under Construction Pages */}
-        <Route path="/games" element={<ComingSoonRoute />} />
+        <Route
+          path="/games"
+          element={
+            <MainLayout>
+              <AllGames />
+            </MainLayout>
+          }
+        />
         <Route path="/guides" element={<ComingSoonRoute />} />
         <Route path="/about" element={<ComingSoonRoute />} />
+        <Route path="/news" element={<ComingSoonRoute />} />
 
         {/* 404 Page */}
         <Route path="*" element={<NotFound />} />

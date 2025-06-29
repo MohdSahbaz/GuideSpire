@@ -6,8 +6,8 @@ const NotFound = () => {
       <h1 className="text-7xl font-extrabold mb-4">404</h1>
       <h2 className="text-2xl font-semibold mb-2">Lost in the Spire...</h2>
       <p className="mb-6 text-gray-300 max-w-md">
-        The page you’re looking for doesn’t exist.<br></br> You can return home
-        and continue exploring the world of games!
+        The page you’re looking for doesn’t exist or still under construction.
+        <br></br> You can return home and continue exploring the world of games!
       </p>
 
       <Link
