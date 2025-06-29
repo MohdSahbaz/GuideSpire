@@ -79,7 +79,7 @@ const HomeBanner = () => {
             />
 
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/[.1] bg-opacity-40 flex items-end">
+            <div className="absolute inset-0 bg-black/[.1] bg-opacity-40 flex items-end z-20">
               <div className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold p-4">
                 {image.name}
               </div>
@@ -103,13 +103,13 @@ const HomeBanner = () => {
       {/* Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-3 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full text-sm sm:text-base z-10"
+        className="absolute top-1/2 left-3 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full text-sm sm:text-base z-50"
       >
         ‹
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-3 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full text-sm sm:text-base z-10"
+        className="absolute top-1/2 right-3 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full text-sm sm:text-base z-50"
       >
         ›
       </button>

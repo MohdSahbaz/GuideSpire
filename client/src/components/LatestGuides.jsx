@@ -26,7 +26,7 @@ const LatestGuides = () => {
           <div
             key={guide.id}
             onClick={() => navigate(`/guide/${guide.slug}`)}
-            className="flex flex-col sm:flex-row sm:items-start gap-6 cursor-pointer"
+            className="flex flex-col sm:flex-row sm:items-start gap-6 cursor-pointer border-b"
           >
             {/* Text Content */}
             <div className="flex-1">
@@ -43,7 +43,7 @@ const LatestGuides = () => {
             <img
               src={guide.image}
               alt={guide.title}
-              className="w-full sm:w-[200px] h-[140px] object-cover rounded-lg"
+              className="w-full sm:w-[200px] h-[140px] object-cover rounded-lg rounded-b-none pb-1"
             />
           </div>
         ))}
