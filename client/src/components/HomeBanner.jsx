@@ -13,7 +13,6 @@ const HomeBanner = () => {
       try {
         const res = await fetchHomeBanners();
         setBannerImages(res.data.data);
-        console.log(res.data.data);
       } catch (error) {
         console.error("Failed to fetch banner image:", error);
       }
@@ -58,14 +57,14 @@ const HomeBanner = () => {
             {/* Image */}
             <img
               src={image.image}
-              alt={image.name}
+              alt={image.title}
               className="w-full h-full object-cover"
             />
 
             {/* Overlay */}
             <div className="absolute inset-0 bg-black/[.1] bg-opacity-40 flex items-end z-20">
               <div className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold p-4">
-                {image.name}
+                {image.title}
               </div>
             </div>
           </div>

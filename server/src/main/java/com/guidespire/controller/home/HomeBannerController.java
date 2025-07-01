@@ -1,8 +1,8 @@
 package com.guidespire.controller.home;
 
-import com.guidespire.model.HomeBanner;
+import com.guidespire.model.home.HomeBanner;
 import com.guidespire.payload.ApiResponse;
-import com.guidespire.service.HomeBannerService;
+import com.guidespire.service.home.HomeBannerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

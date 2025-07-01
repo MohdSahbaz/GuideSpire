@@ -33,20 +33,6 @@ const Navbar = () => {
           </Link>
         </nav>
 
-        {/* Desktop Search */}
-        <div className="hidden md:block relative">
-          <input
-            type="text"
-            // placeholder="Search"
-            placeholder="WIP"
-            disabled
-            className="opacity-60 cursor-not-allowed pl-10 pr-4 py-2 rounded-md bg-[#1A232C] text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#6C63FF] transition-all"
-          />
-          <span className="absolute left-3 top-2.5 text-gray-400">
-            <IoIosSearch />
-          </span>
-        </div>
-
         {/* Mobile Menu Icon */}
         <button
           className="md:hidden text-2xl text-white"
@@ -103,20 +89,6 @@ const Navbar = () => {
           >
             About
           </Link>
-
-          {/* Mobile Search */}
-          <div className="relative mt-4">
-            <input
-              type="text"
-              // placeholder="Search"
-              placeholder="WIP"
-              disabled
-              className="opacity-60 cursor-not-allowed pl-10 pr-4 py-2 w-full rounded-md bg-[#0F1A24] text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#6C63FF]"
-            />
-            <span className="absolute left-3 top-2.5 text-gray-400">
-              <IoIosSearch />
-            </span>
-          </div>
         </nav>
       </div>
 

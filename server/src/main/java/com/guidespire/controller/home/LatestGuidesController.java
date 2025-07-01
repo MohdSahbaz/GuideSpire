@@ -1,9 +1,9 @@
 package com.guidespire.controller.home;
 
 
-import com.guidespire.model.LatestGuides;
+import com.guidespire.model.home.LatestGuides;
 import com.guidespire.payload.ApiResponse;
-import com.guidespire.service.LatestGuidesService;
+import com.guidespire.service.home.LatestGuidesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

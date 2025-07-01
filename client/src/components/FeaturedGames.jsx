@@ -31,7 +31,7 @@ const FeaturedGames = () => {
       <div className="flex flex-wrap justify-center gap-6">
         {featuredGames.map((game) => (
           <div
-            key={game.id}
+            key={game.slug}
             onClick={() => naviagte(`/game/${game.slug}`)}
             className="flex-1 min-w-[285px] flex flex-col bg-[#1A232C] rounded-xl overflow-hidden shadow hover:shadow-lg transition-shadow duration-300 w-full cursor-pointer"
           >

@@ -1,4 +1,9 @@
 package com.guidespire.projection;
 
-public class GameSummary {
+public interface GameSummary {
+    String getSlug();
+    String getTitle();
+    String getDescription();
+    String getImage();
 }
+

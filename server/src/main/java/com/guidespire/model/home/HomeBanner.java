@@ -1,4 +1,4 @@
-package com.guidespire.model;
+package com.guidespire.model.home;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

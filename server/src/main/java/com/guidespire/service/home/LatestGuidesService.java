@@ -1,7 +1,7 @@
-package com.guidespire.service;
+package com.guidespire.service.home;
 
-import com.guidespire.model.LatestGuides;
-import com.guidespire.repository.LatestGuidesRepository;
+import com.guidespire.model.home.LatestGuides;
+import com.guidespire.repository.home.LatestGuidesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

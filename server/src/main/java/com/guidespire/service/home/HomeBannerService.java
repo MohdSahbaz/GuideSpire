@@ -1,7 +1,7 @@
-package com.guidespire.service;
+package com.guidespire.service.home;
 
-import com.guidespire.model.HomeBanner;
-import com.guidespire.repository.HomeBannerRepository;
+import com.guidespire.model.home.HomeBanner;
+import com.guidespire.repository.home.HomeBannerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
