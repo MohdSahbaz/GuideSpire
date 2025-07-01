@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -72,6 +73,7 @@ public class GameController {
         }
     }
 
+    // Get all games summary
     @GetMapping("/summary")
     public ResponseEntity<?> getGamesSummary() {
         try {
@@ -96,6 +98,7 @@ public class GameController {
         }
     }
 
+    // Get all games
     @GetMapping
     public ResponseEntity<?> getGames() {
         try {
@@ -121,6 +124,33 @@ public class GameController {
         }
     }
 
+    // Get single game by slug
+    @GetMapping("/{slug}")
+    public ResponseEntity<?> getGame(@PathVariable String slug) {
+        try {
+           Game game = service.getGameBySlug(slug);
+            if (game == null) {
+                return ResponseEntity
+                        .ok(
+                                new ApiResponse<>(204, "Game not found.", null)
+                        );
+            }
+
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(
+                            new ApiResponse<>(200, "You found me nice!", game)
+                    );
+        } catch (Exception e) {
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(
+                            new ApiResponse<>(500, "Internal server error", null)
+                    );
+        }
+    }
+
+    // Add new game
     @PostMapping
     public ResponseEntity<?> createGame(@RequestBody Game game) {
         try {

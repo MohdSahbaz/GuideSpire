@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import Home from "@pages/Home";
-import CheckBackSoon from "@pages/CheckBackSoon";
+import CheckBackSoon from "@components/CheckBackSoon";
 import NotFound from "@pages/NotFound";
 import AllGames from "@pages/AllGames";
+import Game from "../pages/Game";
 
 const ComingSoonRoute = () => (
   <MainLayout>
@@ -30,6 +31,14 @@ const AppRoutes = () => {
           element={
             <MainLayout>
               <AllGames />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/game/:slug"
+          element={
+            <MainLayout>
+              <Game />
             </MainLayout>
           }
         />

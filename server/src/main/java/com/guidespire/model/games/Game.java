@@ -28,8 +28,11 @@ public class Game {
     private String description;
     private String image;
 
-    private List<String> genres;
-    private List<String> platforms;
+    private String developer;
+    private LocalDateTime releaseDate;
+
+    private String genres;
+    private String platforms;
 
     private boolean isBanner;
     private boolean isFeatured;

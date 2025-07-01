@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { fetchAllGames } from "../api/gameAPI";
 import { useNavigate } from "react-router-dom";
+import Loader from "@components/Loader";
 
 const AllGames = () => {
   const [games, setGames] = useState([]);
   const naviagte = useNavigate();
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     const allGamesLoader = async () => {
@@ -30,7 +31,7 @@ const AllGames = () => {
           placeholder="Search for games"
           className="w-full bg-[#1e293b] text-white px-4 py-2 rounded-lg mb-6 focus:outline-none"
         />
-
+        {loader && <Loader />}
         {/* Games Grid */}
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {games.map((game, index) => (

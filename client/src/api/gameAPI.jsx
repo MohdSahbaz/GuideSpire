@@ -5,3 +5,4 @@ const API = axios.create({
 });
 
 export const fetchAllGames = () => API.get("/game/summary");
+export const fetchGame = (slug) => API.get(`/game/${slug}`);
