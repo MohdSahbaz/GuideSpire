@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { IoIosSearch } from "react-icons/io";
 import { HiMenu, HiX } from "react-icons/hi";
 
 const Navbar = () => {
@@ -10,7 +9,11 @@ const Navbar = () => {
     <header className="bg-[#0F1A24] text-white shadow-sm border-b border-gray-600 sticky top-0 z-50">
       <div className="max-w-screen-xl mx-auto flex items-center justify-between px-4 py-3">
         {/* Logo */}
-        <Link to="/" className="text-xl font-bold text-white">
+        <Link
+          to="/"
+          className="flex items-center gap-2 text-xl font-bold text-white"
+        >
+          <img src="/sadDog.svg" alt="GuideSpire Logo" className="w-8 h-8" />
           GuideSpire
         </Link>
 

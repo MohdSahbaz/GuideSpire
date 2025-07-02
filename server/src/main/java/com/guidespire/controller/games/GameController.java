@@ -73,11 +73,11 @@ public class GameController {
         }
     }
 
-    // Get all games summary
+    // Get all games summary and search by slug
     @GetMapping("/summary")
-    public ResponseEntity<?> getGamesSummary() {
+    public ResponseEntity<?> getGamesSummary(@RequestParam(required = false) String slug) {
         try {
-            List<GameSummary> summaries = service.getGamesSummary();
+            List<GameSummary> summaries = service.getGamesSummary(slug);
             if (summaries.isEmpty()) {
                 return ResponseEntity
                         .ok(

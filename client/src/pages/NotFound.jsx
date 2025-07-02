@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 const NotFound = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#0F1A24] text-white px-6 text-center">
-      <h1 className="text-7xl font-extrabold mb-4">404</h1>
+      <h1 className="text-7xl font-extrabold mb-4 flex justify-center items-center">
+        <img src="/sadDog.svg" alt="GuideSpire Logo" className="w-16 h-16" />{" "}
+        404
+      </h1>
       <h2 className="text-2xl font-semibold mb-2">Lost in the Spire...</h2>
       <p className="mb-6 text-gray-300 max-w-md">
         The page you’re looking for doesn’t exist or still under construction.

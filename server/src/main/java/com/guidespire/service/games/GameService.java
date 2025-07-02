@@ -28,8 +28,11 @@ public class GameService {
     }
 
     // Get all games summary
-    public List<GameSummary> getGamesSummary(){
-        return repository.findAllBy();
+    public List<GameSummary> getGamesSummary(String slug){
+        if(slug == null || slug.trim().isEmpty()){
+            return repository.findAllBy();
+        }
+        return repository.findBySlugContainingIgnoreCase(slug.trim());
     }
 
     // Get all games

@@ -18,6 +18,9 @@ public interface GameRepository extends MongoRepository<Game, String> {
     // Banner Images
     List<BannerSummary> findAllByIsBannerTrue();
 
+    // For partial match
+    List<GameSummary> findBySlugContainingIgnoreCase(String slug);
+
     // Find single game
     Game findBySlug(String slug);
 }

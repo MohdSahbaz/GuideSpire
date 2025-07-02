@@ -4,7 +4,7 @@ import Home from "@pages/Home";
 import CheckBackSoon from "@components/CheckBackSoon";
 import NotFound from "@pages/NotFound";
 import AllGames from "@pages/AllGames";
-import Game from "../pages/Game";
+import Game from "@pages/Game";
 
 const ComingSoonRoute = () => (
   <MainLayout>
