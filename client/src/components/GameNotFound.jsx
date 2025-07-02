@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import InteractiveDog from "./InteractiveDog";
 
 const GameNotFound = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-[calc(100vh-145px)] text-white p-6">
       <h1 className="text-4xl font-bold mb-4 text-red-500 flex justify-center items-center">
-        <img src="/sadDog.svg" alt="GuideSpire Logo" className="w-16 h-16" />
+        <InteractiveDog />
         Game Not Found
       </h1>
       <p className="text-gray-300 mb-6 text-center max-w-md">

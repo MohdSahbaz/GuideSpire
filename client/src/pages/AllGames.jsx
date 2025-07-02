@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchAllGames } from "../api/gameAPI";
 import { useNavigate } from "react-router-dom";
 import Loader from "@components/Loader";
+import InteractiveDog from "@components/InteractiveDog";
 
 const AllGames = () => {
   const [games, setGames] = useState([]);
@@ -43,12 +44,8 @@ const AllGames = () => {
         {loader && <Loader />}
         {slug !== "" && games.length <= 0 && !loader && (
           <div className="text-center text-gray-400 py-12">
-            <div className="text-5xl mb-4">
-              <img
-                src="/sadDog.svg"
-                alt="GuideSpire Logo"
-                className="w-16 h-16 mx-auto"
-              />
+            <div className="text-5xl mb-4 flex justify-center items-center">
+              <InteractiveDog width={16} height={16} />
             </div>
             <h2 className="text-xl font-semibold mb-2">No games found</h2>
             <p className="text-sm text-gray-500">
@@ -59,12 +56,8 @@ const AllGames = () => {
 
         {slug === "" && games.length <= 0 && !loader && (
           <div className="text-center text-gray-400 py-12">
-            <div className="text-5xl mb-4">
-              <img
-                src="/sadDog.svg"
-                alt="GuideSpire Logo"
-                className="w-16 h-16 mx-auto"
-              />
+            <div className="text-5xl mb-4 flex justify-center items-center">
+              <InteractiveDog width={16} height={16} />
             </div>
             <h2 className="text-xl font-semibold mb-2">
               No games available right now

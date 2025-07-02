@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchLatestGuides } from "../api/homeAPI";
 import Loader from "./Loader";
+import InteractiveDog from "./InteractiveDog";
 
 const LatestGuides = () => {
   const navigate = useNavigate();
@@ -27,6 +28,17 @@ const LatestGuides = () => {
     <section className="bg-[#0F1A24] text-white py-12">
       <h2 className="text-2xl sm:text-3xl font-bold mb-8">Latest Guides</h2>
       {loader && <Loader />}
+      {guideData.length <= 0 && !loader && (
+        <div className="text-center text-gray-400 py-12">
+          <div className="text-5xl mb-4 flex justify-center items-center">
+            <InteractiveDog width={8} height={8} />
+          </div>
+          <h2 className="text-xl font-semibold mb-2">No guids available</h2>
+          <p className="text-sm text-gray-500">
+            Check back later to see newly added guides.
+          </p>
+        </div>
+      )}
       <div className="flex flex-col gap-10">
         {guideData.map((guide) => (
           <div
