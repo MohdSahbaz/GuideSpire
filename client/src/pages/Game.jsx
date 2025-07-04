@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import GameNotFound from "../components/GameNotFound";
 import GameTabs from "../components/GameTabs";
 import Loader from "@components/Loader";
@@ -32,9 +32,12 @@ const Game = () => {
     <div className="text-white min-h-[calc(100vh-145px)] p-6">
       {/* Breadcrumb */}
       <div className="text-sm text-gray-400 mb-2">
-        <span className="hover:underline cursor-pointer text-blue-400">
+        <Link
+          to="/games"
+          className="hover:underline cursor-pointer text-blue-400"
+        >
           Games
-        </span>{" "}
+        </Link>{" "}
         / <span className="text-white">{game.title || slug}</span>
       </div>
 
@@ -84,9 +87,9 @@ const Game = () => {
 
           {/* Description */}
           <p className="text-gray-300 max-w-4xl mb-8">{game.description}</p>
+          <GameTabs slug={slug} />
         </>
       )}
-      {/* <GameTabs /> */}
     </div>
   );
 };

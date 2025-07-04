@@ -25,7 +25,7 @@ const LatestGuides = () => {
   }, []);
 
   return (
-    <section className="bg-[#0F1A24] text-white py-12">
+    <section className="bg-[#0F1A24] text-white">
       <h2 className="text-2xl sm:text-3xl font-bold mb-8">Latest Guides</h2>
       {loader && <Loader />}
       {guideData.length <= 0 && !loader && (
