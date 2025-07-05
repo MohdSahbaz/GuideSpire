@@ -15,7 +15,8 @@ public class Boss {
     private String id;
 
     private String name;
-    private String description;
     private String imageUrl;
-    private int difficultyLevel; // 1-10
+    private String tier;
+    private String element;
+    private String gameSlug;
 }

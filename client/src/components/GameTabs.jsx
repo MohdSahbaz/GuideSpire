@@ -2,11 +2,10 @@ import { lazy, Suspense, useState } from "react";
 import Loader from "./Loader";
 
 const CharactersTab = lazy(() => import("./tabs/CharactersTab"));
-const WeaponsTab = lazy(() => import("./tabs/WeaponsTab"));
 const BossesTab = lazy(() => import("./tabs/BossesTab"));
 
 const GameTabs = ({ slug }) => {
-  const tabs = ["Characters", "Weapons", "Bosses"];
+  const tabs = ["Characters", "Bosses"];
 
   const [activeTab, setActiveTab] = useState("Characters");
 
@@ -14,8 +13,6 @@ const GameTabs = ({ slug }) => {
     switch (activeTab) {
       case "Characters":
         return <CharactersTab slug={slug} />;
-      case "Weapons":
-        return <WeaponsTab slug={slug} />;
       case "Bosses":
         return <BossesTab slug={slug} />;
         x;

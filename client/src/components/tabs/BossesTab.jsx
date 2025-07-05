@@ -1,52 +1,37 @@
-const bosses = [
-  {
-    id: "b1",
-    name: "Crownless",
-    imageUrl: "https://images6.alphacoders.com/133/thumb-1920-1330233.jpeg",
-    element: "Fusion",
-    tier: "S",
-    gameSlug: "wuthering-waves",
-  },
-  {
-    id: "b2",
-    name: "Tempest Mephis",
-    imageUrl: "https://images6.alphacoders.com/133/thumb-1920-1330233.jpeg",
-    element: "Aero",
-    tier: "A",
-    gameSlug: "wuthering-waves",
-  },
-  {
-    id: "b3",
-    name: "Impermanence Heron",
-    imageUrl: "https://images6.alphacoders.com/133/thumb-1920-1330233.jpeg",
-    element: "Havoc",
-    tier: "S",
-    gameSlug: "wuthering-waves",
-  },
-  {
-    id: "b4",
-    name: "Thundering Mephis",
-    imageUrl: "https://images6.alphacoders.com/133/thumb-1920-1330233.jpeg",
-    element: "Electro",
-    tier: "A",
-    gameSlug: "wuthering-waves",
-  },
-  {
-    id: "b5",
-    name: "Bell-Borne Geochelone",
-    imageUrl: "https://images6.alphacoders.com/133/thumb-1920-1330233.jpeg",
-    element: "Glacio",
-    tier: "B",
-    gameSlug: "wuthering-waves",
-  },
-];
+import { useEffect, useState } from "react";
+import { fetchBosses } from "../../api/gameAPI";
+import Loader from "../Loader";
+import NoDataAvailable from "../NoDataAvailable";
 
 const BossesTab = ({ slug }) => {
-  const filtered = bosses.filter((b) => b.gameSlug === slug);
+  const [bosses, setBosses] = useState([]);
+  const [loader, setLoader] = useState(true);
+
+  useEffect(() => {
+    const bossesLoader = async () => {
+      try {
+        const res = await fetchBosses(slug);
+        setBosses(res.data.data);
+      } catch (error) {
+        console.log("Error:", error);
+      } finally {
+        setLoader(false);
+      }
+    };
+    bossesLoader();
+  }, [slug]);
+
+  if (loader) {
+    return <Loader />;
+  }
+
+  if (!loader && bosses.length <= 0) {
+    return <NoDataAvailable label="Bosses" />;
+  }
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-      {filtered.map((boss) => (
+      {bosses.map((boss) => (
         <div
           key={boss.id}
           className="backdrop-blur-md bg-white/5 hover:bg-white/10 border border-white/10 rounded p-3 text-center transition-all duration-300"

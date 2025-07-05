@@ -41,9 +41,6 @@ public class Game {
     private List<Character> characters;
 
     @DBRef
-    private List<TierList> tierLists;
-
-    @DBRef
     private List<Guide> guides;
 
     @DBRef

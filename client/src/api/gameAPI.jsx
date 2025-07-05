@@ -7,4 +7,9 @@ const API = axios.create({
 export const fetchAllGames = (slug) =>
   API.get("/game/summary", { params: { slug } });
 
+export const fetchCharacters = (slug) =>
+  API.get("/character", { params: { slug } });
+
+export const fetchBosses = (slug) => API.get(`/bosses`, { params: { slug } });
+
 export const fetchGame = (slug) => API.get(`/game/${slug}`);
