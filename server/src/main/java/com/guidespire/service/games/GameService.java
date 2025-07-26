@@ -5,7 +5,6 @@ import com.guidespire.projection.BannerSummary;
 import com.guidespire.projection.GameSummary;
 import com.guidespire.repository.games.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
