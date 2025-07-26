@@ -3,6 +3,7 @@ package com.guidespire.controller.games;
 import com.guidespire.model.games.Character;
 import com.guidespire.payload.ApiResponse;
 import com.guidespire.service.games.CharacterService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/character")
 @CrossOrigin(origins = "*")
+@Tag(name = "Characters APIs")
 public class CharacterController {
     @Autowired
     private CharacterService service;

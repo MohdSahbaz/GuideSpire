@@ -5,6 +5,8 @@ import com.guidespire.payload.ApiResponse;
 import com.guidespire.projection.BannerSummary;
 import com.guidespire.projection.GameSummary;
 import com.guidespire.service.games.GameService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/game")
 @CrossOrigin(origins = "*")
+@Tag(name = "Game APIs")
 public class GameController {
     @Autowired
     private GameService service;
@@ -22,6 +25,7 @@ public class GameController {
     // Home page Api
     // Banner games
     @GetMapping("/banner-games")
+    @Operation(summary = "Get banner games", description = "Fetch banner games by calling api")
     public ResponseEntity<?> getBannerGames() {
         try {
             List<BannerSummary> bannerGames = service.getBannerGames();

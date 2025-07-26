@@ -22,8 +22,4 @@ public class Character {
 
     @Indexed(unique = false)
     private String gameSlug;
-
-    @DBRef
-    private String game;
-
 }

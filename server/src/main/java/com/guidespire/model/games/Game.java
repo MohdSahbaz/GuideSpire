@@ -37,16 +37,6 @@ public class Game {
     private boolean isBanner;
     private boolean isFeatured;
 
-    @DBRef
-    private List<Character> characters;
-
-    @DBRef
-    private List<Guide> guides;
-
-    @DBRef
-    private List<Boss> bosses;
-
-
     @CreatedDate
     private LocalDateTime createdAt;
 

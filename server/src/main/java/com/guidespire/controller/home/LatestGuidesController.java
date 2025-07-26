@@ -4,6 +4,7 @@ package com.guidespire.controller.home;
 import com.guidespire.model.home.LatestGuides;
 import com.guidespire.payload.ApiResponse;
 import com.guidespire.service.home.LatestGuidesService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/home/latest-guides")
 @CrossOrigin(origins = "*")
+@Tag(name = "Latest Guides APIs", description = "No use for now")
 public class LatestGuidesController {
     @Autowired
     private LatestGuidesService service;

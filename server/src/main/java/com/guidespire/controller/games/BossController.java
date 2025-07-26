@@ -3,6 +3,7 @@ package com.guidespire.controller.games;
 import com.guidespire.model.games.Boss;
 import com.guidespire.payload.ApiResponse;
 import com.guidespire.service.games.BossService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/bosses")
 @CrossOrigin(origins = "*")
+@Tag(name = "Boss APIs")
 public class BossController {
     @Autowired
     private BossService service;

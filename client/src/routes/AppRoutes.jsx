@@ -5,6 +5,7 @@ import CheckBackSoon from "@components/CheckBackSoon";
 import NotFound from "@pages/NotFound";
 import AllGames from "@pages/AllGames";
 import Game from "@pages/Game";
+import About from "../pages/About";
 
 const ComingSoonRoute = () => (
   <MainLayout>
@@ -42,9 +43,16 @@ const AppRoutes = () => {
             </MainLayout>
           }
         />
-        <Route path="/guides" element={<ComingSoonRoute />} />
-        <Route path="/about" element={<ComingSoonRoute />} />
-        <Route path="/news" element={<ComingSoonRoute />} />
+        <Route
+          path="/about"
+          element={
+            <MainLayout>
+              <About />
+            </MainLayout>
+          }
+        />
+        {/* <Route path="/guides" element={<ComingSoonRoute />} /> */}
+        {/* <Route path="/news" element={<ComingSoonRoute />} /> */}
 
         {/* 404 Page */}
         <Route path="*" element={<NotFound />} />
